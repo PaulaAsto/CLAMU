@@ -7,8 +7,8 @@
   <link rel="stylesheet" type="text/css" href="/static/style/style.css" />
   <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
   function popitup(url)
-  { 
-    newwindow=window.open(url,'name','height=200,width=600'); 
+  {
+    newwindow=window.open(url,'name','height=200,width=600');
     if (window.focus) {newwindow.focus()}
     return false;
   }
@@ -50,7 +50,7 @@
           <span class="fa fa-wrench"></span>
           <p> CLASIFICAR MUSICA</p>
           <img src="/static/images/clasif.png">
-          <br><a href="#" class="button button-alt">CLASIFICAR</a>
+          <br><a href="/clasificar" class="button button-alt">CLASIFICAR</a>
           <!-- <br><br><br><label>Genero <input type="text" id="genero" name="genero" /></label> -->
         </div>
       </div>
