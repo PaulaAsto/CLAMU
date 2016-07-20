@@ -1,11 +1,6 @@
 var mic, recorder, soundFile;
 
 function setup() {
-  //createCanvas(400,400);
-  //background(200);
-  //fill(0);
-  //text('Enable mic and click the mouse to begin recording', 20, 20);
-
   // create an audio in
   mic = new p5.AudioIn();
 
@@ -24,10 +19,11 @@ function setup() {
 
 function detener(){
   recorder.stop();
-  saveSound(soundFile, 'mySound.wav');
+  saveSound(soundFile, '/output.wav');
 }
 
 function funcionAudio() {
     recorder.record(soundFile);
+    alert("Grabando audio. Espere 30 segundos.");
     setTimeout('detener()',10000);
 }
