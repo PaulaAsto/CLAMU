@@ -24,8 +24,8 @@ function detener(){
 }
 
 function funcionAudio() {
-  recorder.record(soundFile);
   alert("Se grabará el audio del tema musical. Espere 30 segundos.");
+  recorder.record(soundFile);
   setTimeout('detener()',30000);
 }
 

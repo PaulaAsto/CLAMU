@@ -1,5 +1,7 @@
 from bottle import route, template, run, static_file, error
 from bottle import request
+from bottle import SimpleTemplate
+from lxml import etree
 from neat import nn
 import pickle
 from audioClass import Audio
@@ -42,9 +44,16 @@ def do_upload():
                     clasica=output[1], pop=output[2], hiphop=output[3])
 
 
-@route('/clasificar')  # Reproducir la grabacion
+@route('/clasificar') # Reproducir la grabacion
 def clasificar():
-    a = Audio('output.wav', nro_texture_windows=2584, hopsize=256)
+    s = ['sox', 'static/output.wav',
+         '-c', '1',
+         '-b', '16',
+         '-r', '22050',
+         'output' + '-convert.wav']
+    subprocess.call(s)
+
+    a = Audio('output' + '-convert.wav', nro_texture_windows=2584, hopsize=256)
     dict = feature.getFeatureVector(a, 512, 256, 86)
 
     arr = common.featureDictToArray(dict)
