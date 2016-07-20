@@ -1,6 +1,5 @@
-from bottle import route, default_app, template, run, static_file, error
-from bottle import SimpleTemplate, request
-from lxml import etree
+from bottle import route, template, run, static_file, error
+from bottle import request
 import reproducirAudio
 from neat import nn
 import pickle
@@ -11,18 +10,19 @@ import os
 import subprocess
 
 
-@route('/') # Ruta de inicio del programa, pagina de presentacion
+@route('/')  # Ruta de inicio del programa, pagina de presentacion
 def index():
     return template("index.tpl", mostrar=False)
 
-@route('/reproducir') # Reproducir la grabacion
+
+@route('/reproducir')  # Reproducir la grabacion
 def reproducirA():
-	reproducirAudio.reproducir() # Funcion en python de reproduccion de sonido
+    reproducirAudio.reproducir()  # Funcion en python de reproduccion de sonido
 
 
 @route('/subir', method='POST')
 def do_upload():
-    upload     = request.POST['archivo']
+    upload = request.POST['archivo']
     name, ext = os.path.splitext(upload.filename)
     if ext not in ('.wav', '.mp3'):
         return 'Extension no permitida'
@@ -48,7 +48,8 @@ def do_upload():
     return template("index.tpl", mostrar=True, metal=output[0],
                     clasica=output[1], pop=output[2], hiphop=output[3])
 
-@route('/clasificar') # Reproducir la grabacion
+
+@route('/clasificar')  # Reproducir la grabacion
 def clasificar():
     a = Audio('output.wav', nro_texture_windows=2584, hopsize=256)
     dict = feature.getFeatureVector(a, 512, 256, 86)
@@ -64,12 +65,14 @@ def clasificar():
                     clasica=output[1], pop=output[2], hiphop=output[3])
 
 
-@route('/static/<filepath:path>') # Interaccion de las paginas con los styles, imagenes, etc.
+@route('/static/<filepath:path>')  # Archivos estáticos
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-@error(404) # Cuando ocurre algun error de direccionamiento a alguna pagina inexistente
+
+@error(404)  # Direccionamiento a alguna pagina inexistente
 def error404(error):
     return 'Nothing here, sorry'
 
-run(host='0.0.0.0', port=8080) # Puerto donde va a realizar la escucha
+
+run(host='0.0.0.0', port=8080)  # Puerto donde va a realizar la escucha
