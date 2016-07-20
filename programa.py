@@ -16,7 +16,8 @@ def index():
 
 @route('/grabar') # Ruta de grabacion del sonido
 def grabarA():
-	grabarAudio.grabar() # Funcion en python de grabacion de sonido
+	return template("gAudio.tpl", mostrar=True)
+    #grabarAudio.grabar() # Funcion en python de grabacion de sonido
 
 @route('/reproducir') # Reproducir la grabacion
 def reproducirA():
