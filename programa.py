@@ -1,6 +1,5 @@
 from bottle import route, template, run, static_file, error
 from bottle import request
-import reproducirAudio
 from neat import nn
 import pickle
 from audioClass import Audio
@@ -13,12 +12,6 @@ import subprocess
 @route('/')  # Ruta de inicio del programa, pagina de presentacion
 def index():
     return template("index.tpl", mostrar=False)
-
-
-@route('/reproducir')  # Reproducir la grabacion
-def reproducirA():
-    reproducirAudio.reproducir()  # Funcion en python de reproduccion de sonido
-
 
 @route('/subir', method='POST')
 def do_upload():
@@ -65,7 +58,7 @@ def clasificar():
                     clasica=output[1], pop=output[2], hiphop=output[3])
 
 
-@route('/static/<filepath:path>')  # Archivos estáticos
+@route('/static/<filepath:path>')  # Archivos estaticos
 def server_static(filepath):
     return static_file(filepath, root='static')
 

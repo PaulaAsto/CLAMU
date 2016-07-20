@@ -19,17 +19,18 @@ function setup() {
 
 function detener(){
   recorder.stop();
+  alert("Se terminó el grabado de audio.");
   saveSound(soundFile, 'output.wav');
 }
 
 function funcionAudio() {
   recorder.record(soundFile);
-  alert("Grabando audio. Espere 30 segundos.");
-  setTimeout('detener()',10000);
+  alert("Se grabará el audio del tema musical. Espere 30 segundos.");
+  setTimeout('detener()',30000);
 }
 
 function funcionReproducir(){
   song = loadSound('/static/output.wav');
-  alert("Reproduciendo audio. Espere 30 segundos.");
+  alert("Se reproducirá el audio. Espere 30 segundos.");
   song.play();
 }
