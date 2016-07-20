@@ -35,7 +35,7 @@
           <span class="fa fa-cogs"></span>
           <p>REPRODUCIR MUSICA</p>
           <br><img src="/static/images/play.png">
-          <br><a href="/reproducir" onClick="" class="button button-alt">REPRODUCIR</a>
+          <br><a href="#" class="button button-alt" onClick="funcionReproducir()">REPRODUCIR</a>
         </div>
         <div class="boxC">
           <span class="fa fa-wrench"></span>

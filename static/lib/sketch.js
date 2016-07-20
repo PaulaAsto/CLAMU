@@ -1,4 +1,4 @@
-var mic, recorder, soundFile;
+var mic, recorder, soundFile, song;
 
 function setup() {
   // create an audio in
@@ -19,11 +19,17 @@ function setup() {
 
 function detener(){
   recorder.stop();
-  saveSound(soundFile, '/output.wav');
+  saveSound(soundFile, 'output.wav');
 }
 
 function funcionAudio() {
-    recorder.record(soundFile);
-    alert("Grabando audio. Espere 30 segundos.");
-    setTimeout('detener()',10000);
+  recorder.record(soundFile);
+  alert("Grabando audio. Espere 30 segundos.");
+  setTimeout('detener()',10000);
+}
+
+function funcionReproducir(){
+  song = loadSound('/static/output.wav');
+  alert("Reproduciendo audio. Espere 30 segundos.");
+  song.play();
 }

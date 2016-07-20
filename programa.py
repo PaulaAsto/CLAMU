@@ -1,8 +1,6 @@
 from bottle import route, default_app, template, run, static_file, error
 from bottle import SimpleTemplate
 from lxml import etree
-import grabarAudio
-import reproducirAudio
 from neat import nn
 import pickle
 from audioClass import Audio
