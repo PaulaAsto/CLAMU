@@ -51,9 +51,18 @@
           <p> CLASIFICAR MUSICA</p>
           <img src="/static/images/clasif.png">
           <br><a href="/clasificar" class="button button-alt">CLASIFICAR</a>
-          <!-- <br><br><br><label>Genero <input type="text" id="genero" name="genero" /></label> -->
+
         </div>
+
       </div>
+      <br>
+      <br>
+      <center>
+          <form method="post" action="/subir" enctype="multipart/form-data">
+              Examinar &hellip; <input type="file" name="archivo">
+              <button type="submit">Subir archivo</button>
+          </form>
+      </center>
     </div>
   </div>
 </body>
