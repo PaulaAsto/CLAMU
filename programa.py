@@ -1,7 +1,6 @@
 from bottle import route, default_app, template, run, static_file, error
 from bottle import SimpleTemplate, request
 from lxml import etree
-import grabarAudio
 import reproducirAudio
 from neat import nn
 import pickle
@@ -18,7 +17,8 @@ def index():
 
 @route('/grabar') # Ruta de grabacion del sonido
 def grabarA():
-	grabarAudio.grabar() # Funcion en python de grabacion de sonido
+	return template("gAudio.tpl", mostrar=True)
+    #grabarAudio.grabar() # Funcion en python de grabacion de sonido
 
 @route('/reproducir') # Reproducir la grabacion
 def reproducirA():
