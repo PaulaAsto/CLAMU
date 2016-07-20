@@ -15,11 +15,6 @@ import subprocess
 def index():
     return template("index.tpl", mostrar=False)
 
-@route('/grabar') # Ruta de grabacion del sonido
-def grabarA():
-	return template("gAudio.tpl", mostrar=True)
-    #grabarAudio.grabar() # Funcion en python de grabacion de sonido
-
 @route('/reproducir') # Reproducir la grabacion
 def reproducirA():
 	reproducirAudio.reproducir() # Funcion en python de reproduccion de sonido
