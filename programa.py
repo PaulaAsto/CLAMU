@@ -1,7 +1,5 @@
 from bottle import route, template, run, static_file, error
 from bottle import request
-from bottle import SimpleTemplate
-from lxml import etree
 from neat import nn
 import pickle
 from audioClass import Audio
@@ -14,6 +12,7 @@ import subprocess
 @route('/')  # Ruta de inicio del programa, pagina de presentacion
 def index():
     return template("index.tpl", mostrar=False)
+
 
 @route('/subir', method='POST')
 def do_upload():
@@ -44,7 +43,7 @@ def do_upload():
                     clasica=output[1], pop=output[2], hiphop=output[3])
 
 
-@route('/clasificar') # Reproducir la grabacion
+@route('/clasificar')  # Reproducir la grabacion
 def clasificar():
     s = ['sox', 'static/output.wav',
          '-c', '1',

@@ -3,10 +3,10 @@
 <center>
     <div style="background-color:white">
         <h1>Resultado</h1>
-        <p>Metal: {{metal}}</p><br>
+        <p>Rock: {{metal}}</p><br>
         <p>Clasica: {{clasica}}</p><br>
-        <p>Pop: {{pop}}</p><br>
-        <p>Hip hop: {{hiphop}}</p><br>
+        <p>Cumbia: {{pop}}</p><br>
+        <p>Salsa: {{hiphop}}</p><br>
     </div>
 </center>
 % include('footer.tpl')
