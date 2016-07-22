@@ -24,16 +24,16 @@ def do_upload():
     name, ext = os.path.splitext(upload.filename)
     if ext not in ('.wav', '.mp3'):
         return 'Extension no permitida'
-    upload.save('output.wav', overwrite=True)
+    upload.save('.', overwrite=True)
 
-    s = ['sox', 'output.wav',
+    s = ['sox', upload.filename,
          '-c', '1',
          '-b', '16',
          '-r', '22050',
-         'output-convert.wav']
+         'output.wav']
     subprocess.call(s)
 
-    a = Audio('output-convert.wav', nro_texture_windows=2584, hopsize=256)
+    a = Audio('output.wav', nro_texture_windows=2584, hopsize=256)
     dict = feature.getFeatureVector(a, 512, 256, 86)
 
     arr = common.featureDictToArray(dict)
