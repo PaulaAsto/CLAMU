@@ -1,7 +1,9 @@
 </div>
     </div>
     <div id="footer">
-    	<i> YULIANA APAZA - PAULA ASTO - GLADYS CALLE </i>
+        <p>Inteligencia Artificial 2</p>
+        <p>Escuela Profesional Ingeniería de Sistemas</p>
+        <p>Universidad Nacional de San Agustín</p>
   	</div>
-  </div>
+</div>
 </html>

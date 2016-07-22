@@ -2,7 +2,6 @@ bottle==0.12.9
 neat-python==0.8
 numpy==1.11.1
 PyAudio==0.2.9
-pydub==0.16.4
 python-speech-features==0.4
 scipy==0.17.1
 stft==0.5.2
